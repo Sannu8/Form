@@ -1,0 +1,289 @@
+/* Header */
+
+header {
+  text-align: center;
+}
+
+hr {
+  background-color: #00b2f0;
+  border: none;
+  height: 2px;
+}
+
+
+
+/* Body */
+
+body {
+  background-color: #454e57;
+  color: #fff;
+  font-family: sans-serif;
+  margin-right: 20%;
+  margin-left: 20%;
+}
+
+/* All input CSS*/
+
+input[type='text']{
+  background-color: #454e57;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #81868c;
+color: #fff;
+}
+
+input[type='email']{
+  background-color: #454e57;
+  width: 60%;
+  border: none;
+  border-bottom: 1px solid #81868c;
+  color: #fff;
+}
+  input[type='tel']{
+    background-color: #454e57;
+    color: #fff;
+    border: none;
+    border-bottom: 1px solid #81868c;
+  }
+  input[type='url'] {
+    background-color: #454e57;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #81868c;
+    color: #fff;
+}
+
+input:invalid {
+border-bottom: 1px solid red;
+}
+
+input::placeholder {
+  color: #81868c;
+}
+
+input [type='checkbox'] {
+
+}
+input.floatLeft{
+  float: left;
+  width: 60%;
+}
+
+input.floatRight {
+  float: right;
+  width: 30%;
+}
+
+input.location {
+  width: 20%;
+  margin-right: 60px;
+}
+
+input.locationend {
+  width: 20%;
+  float: right;
+}
+
+td input[type="text"] {
+  width: 100%;
+  margin-right: 20px;
+}
+
+td input[type="button"] {
+  background-color: #00b2f0;
+  border-color: #00b2f0;
+  height: 30px;
+  width: 100px;
+  color: #fff;
+}
+
+#Add {
+
+}
+/* All buttons */
+
+/* Radio Buttons */
+
+/* The container */
+.containerRadio {
+position: relative;
+cursor: pointer;
+}
+
+/* Hide the browser's default radio button */
+input[type="radio"] {
+  opacity: 0;
+  position: absolute;
+}
+
+/* Create a custom radio button */
+.checkmarkRadio {
+  position: relative;
+  top: 0;
+  left: 0;
+  height: 40px;
+  width: 200px;
+  background-color: #454e57;
+  display: block;
+  border: 1px solid #81868c;
+  text-align: center;
+  vertical-align: middle;
+}
+
+/* On mouse-over, add a grey background color */
+.containerRadio:hover input ~ .checkmarkRadio {
+    background-color: #81868c;
+}
+
+/* When the radio button is checked, add a blue background */
+.containerRadio input:checked ~ .checkmarkRadio {
+    background-color: #2196F3;
+    border: 1px solid #2196F3;
+}
+
+.buttonText {
+  padding-top: 10px;
+}
+
+/* Other buttons*/
+
+
+.submit, button:hover {
+  background-color: #00b2f0;
+  border-color: #00b2f0;
+  height: 40px;
+  width: 200px;
+  color: #fff;
+}
+
+
+
+#firstButton {
+  float: left;
+}
+
+#endButton {
+  float: right;
+}
+
+#middleButton {
+  margin-left: 30px;
+}
+
+/* Text areas*/
+    textarea {
+      background-color: #454e57;
+      width: 100%;
+      border-color: 1px solid #81868c;
+      color: #fff;
+  }
+
+
+textarea::placeholder {
+  color: #81868c;
+}
+
+
+
+
+table {
+  width: 100%;
+
+}
+
+
+
+/*small {
+  color: #81868c;
+}
+*/
+hr.greyHr {
+  background-color: #81868c;
+  height: 1px;
+  border: none;
+}
+
+
+
+.secondCol {
+  padding-left: 30px;
+}
+
+/* CheckBoxes */
+#checkBoxes {
+  vertical-align: top;
+}
+/* The container*/
+.container {
+  display: block;
+  position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+
+}
+
+.SpanDelete {
+  opacity: 0;
+  visibility: hidden;
+  display: none;
+}
+
+.SpanDelete:hover {
+  opacity: 1;
+
+}
+
+/*Hiding the default checkbox of browser */
+.container input {
+  position: absolute;
+  opacity: 0;
+}
+
+/*Creating custom checkbox */
+.checkmark {
+
+  position: absolute;
+      top: 0;
+      left: 0;
+      height: 16px;
+      width: 16px;
+      background-color: #454e57;
+      border: 2px solid #81868c;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+    background-color: #81868c;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+    background-color: #00b2f0;
+    border: 1px solid #00b2f0;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+  left: 6px;
+  top: 2px;
+    width: 3px;
+    height: 8px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}

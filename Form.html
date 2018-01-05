@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <link rel="stylesheet" type="text/css" href="Form.css">
+    <title>Form</title>
+    <script type="text/javascript">
+
+
+      function displayCross(spanId) {
+
+        spanId.style.color = "Red";
+        spanId.innerHTML = "Delete"; // remove, span should always have this value
+      }
+
+      function removeCross(spanId) {
+
+        spanId.innerHTML = " ";
+      }
+
+      function deleteOption(containerId) {
+
+        containerId.parentNode.removeChild(containerId);
+      }
+
+      function checkEmail() {
+        var email = document.getElementById("email").value;
+        var confirm = document.getElementById("confirm").value;
+        if (email === confirm) {
+          emailMessage.style.color = "LightGreen";
+          emailMessage.innerHTML = " Emails successfully match!!";
+        }
+        else {
+          emailMessage.style.color = "Red";
+          emailMessage.innerHTML = " Emails do not match!!";
+        }
+      }
+
+      function addExperience() {
+
+  /// For Label element
+  var newLabel = document.createElement('label');
+  newLabel.setAttribute("id", inputValue);
+  newLabel.setAttribute("class", "container");
+  var newLabelId = newLabel.id;
+
+
+  //For input checkbox Element
+  var newCheck = document.createElement('input');
+  newCheck.type = "checkbox";
+
+  newLabel.appendChild(newCheck);
+
+  //For Span Element first
+  var newSpan = document.createElement('span');
+  newSpan.setAttribute("class", "checkmark");
+  newLabel.appendChild(newSpan);
+
+//For inputValue
+var inputValue = document.getElementById("addValue").value;
+  newLabel.append(inputValue);
+
+  //For SEcond span element
+  var secondSpan = document.createElement('span');
+  var secondSpanId = "cross" + inputValue;
+  secondSpan.setAttribute("id", "cross" + inputValue);
+  //secondSpan.addEventListener("click", deleteOption, false);
+  secondSpan.innerHTML = " Delete";
+  secondSpan.class = "SpanDelete";
+  secondSpan.style.color = "Red";
+  //secondSpan.setAttribute("onclick", deleteOption(newLabelId));
+  newLabel.appendChild(secondSpan);
+
+  //Get Value of Input
+
+  var tRow = document.getElementById("ExperienceTd");
+
+
+//Display of delete span
+//newLabel.setAttribute("onmouseover", displayCross(secondSpanId));
+//newLabel.setAttribute("onmouseout", removeCross(secondSpanId));
+
+  tRow.appendChild(newLabel);
+
+  }
+
+    </script>
+  </head>
+  <body>
+<header>
+  <h2>Let's talk</h2>
+<small>Think you have what it takes? Show us.</small>
+</header>
+<form class="" action="index.html" method="post">
+  <h4>1. Personal information</h4>
+  <hr>
+  <br><br>
+  <input type="text" name="" placeholder="Full name*" pattern="[A-Za-z]{2,}" title="Only accepts Alphabets(Capital or small for now. Minimum number of characters 2. Please Enter a Valid FullName. For Eg: Sandhya Mahat)"class = "floatLeft" required>
+  <input type="tel" name="" placeholder="Phone#*" pattern="[+]358[0-9]{9}" title="Please insert your phone number with the country code. For eg: +358404178995"class = "floatRight" required><br><br>
+  <input type="email" name="" placeholder="Email*" id="email" required><br><br>
+  <input type="email" name="" placeholder="Re-enter email*" id="confirm" onkeyup="checkEmail()" required><span id="emailMessage"></span>
+  <br><br>
+  <br>
+  <input type="text" rows = '2' name="" placeholder="Address*" pattern="" required><br><br>
+<hr class="greyHr">
+  <br>
+  <input type="text" name="" placeholder="City*" pattern="[a-z]{2,}" class='location' required>
+  <input type="text" name="" placeholder="State" pattern="" class='location'>
+  <input type="text" name="" placeholder="Country/Region*" pattern="[a-z]{2,}" class='location' required>
+  <input type="text" name="" placeholder="Zip/Postal code" pattern="[0-9]{5}" class='locationend'><br><br><br>
+  <input type="text" name="" pattern="" placeholder="How did you hear about us">
+
+  <h4>2. Skills and location</h4>
+  <hr><br>
+  Which is your primary design discipline?*
+  <br><br>
+<table>
+  <tr id="buttons">
+    <td>
+      <label class="containerRadio">
+      <input type="radio" name="button" value ="Design Research" id="firstButton">
+      <span class="checkmarkRadio"><div class="buttonText">Design Research</div></span>
+    </label>
+    </td>
+      <td>
+        <label class="containerRadio">
+        <input type="radio" name="button" value = "Visual Design" id="middleButton">
+        <span class="checkmarkRadio"><div class="buttonText">Visual Design</div></span>
+        </label>
+      </td>
+      <td>
+        <label class="containerRadio">
+        <input type="radio" name="button" value = "UX Design" id= "middleButton">
+        <span class="checkmarkRadio"><div class="buttonText">UX Design</div></span>
+        </label>
+      </td>
+      <td>
+        <label class="containerRadio">
+        <input type="radio" name="button" value = "Front-end Dev" id= "endButton">
+        <span class="checkmarkRadio"><div class="buttonText">Front-end Dev</div></span>
+        </label>
+      </td>
+
+  </tr>
+
+<tr id="questions">
+  <td colspan="2">
+    <br>
+Do you have experience with any other disciplines?
+</td>
+
+<td colspan="2" class="secondCol">
+  <br>
+Where are you interested in working?*
+</td>
+</tr>
+
+<tr>
+<td colspan="2" id= "EmptyValid"> </td>
+<td colspan="2" id= "EmptyValid" class="secondCol"><small>You must be legally authorized to work without visa <br>sponsorship in the location(s) you choose.</small></td>
+</tr>
+
+<tr id="checkBoxes">
+  <td colspan = "2" id="ExperienceTd">
+
+  <label id="visual" class = "container" onmouseover="displayCross(crossVisual)" onmouseout="removeCross(crossVisual)">Visual Design
+  <input type="checkbox" name="" value="Visual Design">
+  <span class="checkmark"></span> <span id= "crossVisual" onclick="deleteOption(visual)"></span>
+</label>
+
+  <label id="UX" class = "container" onmouseover="displayCross(crossUX)" onmouseout="removeCross(crossUX)">UX Design
+    <input type="checkbox" name="" value="UX Design">
+    <span class="checkmark"></span><span id= "crossUX" onclick="deleteOption(UX)"></span>
+      </label>
+
+  <label id="Front" class = "container" onmouseover="displayCross(crossFront)" onmouseout="removeCross(crossFront)">Front-end Development
+    <input type="checkbox" name="" value="Front-end Development">
+    <span class="checkmark"></span><span id= "crossFront" onclick="deleteOption(Front)"></span>
+      </label>
+
+</td>
+
+<td colspan = "2" class="secondCol">
+  <br>
+
+  <label id="Austin" class = "container" onmouseover="displayCross(crossAustin)" onmouseout="removeCross(crossAustin)">Austin, Texas
+    <input type="checkbox" name="" label="Austin, Texas">
+    <span class="checkmark"></span><span id= "crossAustin" onclick="deleteOption(Austin)"></span>
+      </label>
+
+  <label id="NY" class = "container" onmouseover="displayCross(crossNY)" onmouseout="removeCross(crossNY)">New York, New York
+    <input type="checkbox" name="" value="New York, New York">
+    <span class="checkmark"></span><span id= "crossNY" onclick="deleteOption(NY)"></span>
+      </label>
+  <label id="Toronto" class = "container" onmouseover="displayCross(crossToronto)" onmouseout="removeCross(crossToronto)">Toronto, Canada
+    <input type="checkbox" name="" value="Toronto, Canada">
+    <span class="checkmark"></span><span id= "crossToronto" onclick="deleteOption(Toronto)"></span>
+      </label>
+  <label id="China" class = "container" onmouseover="displayCross(crossChina)" onmouseout="removeCross(crossChina)">Shanghai, China
+    <input type="checkbox" name="" value="Shanghai, China">
+    <span class="checkmark"></span><span id= "crossChina" onclick="deleteOption(China)"></span>
+      </label>
+  <label id="Ireland" class = "container" onmouseover="displayCross(crossIreland)" onmouseout="removeCross(crossIreland)">Dublin, Ireland
+    <input type="checkbox" name="" value="Dublin, Ireland">
+    <span class="checkmark"></span><span id= "crossIreland" onclick="deleteOption(Ireland)"></span>
+      </label>
+  <label id="UK" class = "container" onmouseover="displayCross(crossUK)" onmouseout="removeCross(crossUK)">Hursley, United Kingdom
+    <input type="checkbox" name="" value="Hursley, United Kingdom">
+    <span class="checkmark"></span><span id= "crossUK" onclick="deleteOption(UK)"></span>
+      </label>
+  <label id="Germany" class = "container" onmouseover="displayCross(crossGermany)" onmouseout="removeCross(crossGermany)">Boeblingen, Germany
+    <input type="checkbox" name="" value="Boeblingen, Germany">
+    <span class="checkmark"></span><span id= "crossGermany" onclick="deleteOption(Germany)"></span>
+      </label>
+  <label id="Else" class = "container" onmouseover="displayCross(crossElse)" onmouseout="removeCross(crossElse)">Somewhere else
+    <input type="checkbox" name="" value="Somewhere else">
+    <span class="checkmark"></span><span id= "crossElse" onclick="deleteOption(Else)"></span>
+  </label>
+
+  </td>
+</tr>
+
+
+<tr id="Add">
+  <td><input type="text" name="" id="addValue"></td>
+  <td><input type="button" name="" value="Add Experience" onclick="addExperience()"></td>
+
+  <td colspand="2"></td>
+</tr>
+
+</table>
+
+  <h4>3. Portfolio</h4>
+  <hr>
+  <br>
+  Prove you're IBM's next great designer by showing us who you are. What you've done. How you think. Tell us your story.
+  <br><br><br>
+
+  <input type="url" name="" pattern = "https?://.+[.].+" title="Please include a valid url starting with https://" placeholder="Portfolio link*">
+  <br><br>
+  <textarea name="" rows= "5" placeholder="Anything else (another link, availability, etc.)?"></textarea>
+
+  <br><br><br>
+  <input type="submit" name="" value="Submit" class="submit">
+</form>
+  </body>
+</html>
