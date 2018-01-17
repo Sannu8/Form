@@ -10,7 +10,7 @@
       function displayCross(spanId) {
 
         spanId.style.color = "Red";
-        spanId.innerHTML = "Delete"; // remove, span should always have this value
+        spanId.innerHTML = " Delete";
       }
 
       function removeCross(spanId) {
@@ -39,9 +39,12 @@
       function addExperience() {
 
   /// For Label element
+  var inputValue = document.getElementById("addValue").value;
   var newLabel = document.createElement('label');
   newLabel.setAttribute("id", inputValue);
   newLabel.setAttribute("class", "container");
+  newLabel.setAttribute("onmouseover","displayCross(cross" + inputValue + ")");
+  newLabel.setAttribute("onmouseout","removeCross(cross" + inputValue + ")");
   var newLabelId = newLabel.id;
 
 
@@ -64,21 +67,14 @@ var inputValue = document.getElementById("addValue").value;
   var secondSpan = document.createElement('span');
   var secondSpanId = "cross" + inputValue;
   secondSpan.setAttribute("id", "cross" + inputValue);
-  //secondSpan.addEventListener("click", deleteOption, false);
-  secondSpan.innerHTML = " Delete";
   secondSpan.class = "SpanDelete";
   secondSpan.style.color = "Red";
-  //secondSpan.setAttribute("onclick", deleteOption(newLabelId));
+  secondSpan.setAttribute("onclick", "deleteOption(" + inputValue + ")");
   newLabel.appendChild(secondSpan);
 
   //Get Value of Input
 
   var tRow = document.getElementById("ExperienceTd");
-
-
-//Display of delete span
-//newLabel.setAttribute("onmouseover", displayCross(secondSpanId));
-//newLabel.setAttribute("onmouseout", removeCross(secondSpanId));
 
   tRow.appendChild(newLabel);
 
