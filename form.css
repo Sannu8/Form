@@ -51,16 +51,14 @@ input[type="url"] {
   color: #fff;
 }
 
-input:invalid {
-  background-color: red;
+.touched:invalid {
+  border-bottom: 1px solid red;
 }
 
 input::placeholder {
   color: #81868c;
 }
 
-input [type="checkbox"] {
-}
 input.floatLeft {
   float: left;
   width: 60%;
@@ -73,7 +71,7 @@ input.floatRight {
 
 input.location {
   width: 20%;
-  margin-right: 60px;
+  margin-right: 50px;
 }
 
 input.locationend {
@@ -94,8 +92,6 @@ td input[type="button"] {
   color: #fff;
 }
 
-#Add {
-}
 /* All buttons */
 
 /* Radio Buttons */
@@ -123,7 +119,6 @@ input[type="radio"] {
   display: block;
   border: 1px solid #81868c;
   text-align: center;
-  vertical-align: middle;
 }
 
 /* On mouse-over, add a grey background color */

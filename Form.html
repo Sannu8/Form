@@ -6,6 +6,7 @@
   <link rel="stylesheet" type="text/css" href="Form.css">
   <title>Form</title>
   <script type="text/javascript" src="form.js">
+
   </script>
 </head>
 
@@ -20,32 +21,40 @@
     <br>
     <br>
     <input type="text" name="" placeholder="Full name*" pattern="^([A-ZÄÖÅ][a-zåäö'?.?]{1,}\s?){2,}" title="Accepts Alphabets(Capital or small for now. Minimum number of characters 2. Please Enter a Valid FullName. For Eg: Sandhya Mahat)"
-      class="floatLeft touched" required>
-    <input type="tel" name="" placeholder="Phone#*" pattern="([+]358[0-9]{9})|(0[0-9]{9})" title="Please insert your phone number with the country code. For eg: +358404178995"
-      class="floatRight" required>
+      class="floatLeft" id="fullname" onfocus="handleFocus(fullname)" onblur="handleBlur(fullname)" required>
+    <input type="tel" name="tel" placeholder="Phone#*" pattern="([+]358[0-9]{9})|(0[0-9]{9})" title="Please insert your phone number with the country code. For eg: +358404178995"
+      class="floatRight" id="tel" onfocus="handleFocus(tel)" onblur="handleBlur(tel)" required>
     <br>
     <br>
-    <input type="email" name="" placeholder="Email*" id="email" title="Format allowed: sandhyamahat8@yahoo.com" required>
+    <input type="email" name="email" placeholder="Email*" id="emailid" title="Format allowed: sandhyamahat8@yahoo.com" onfocus="handleFocus(emailid)"
+      onblur="handleBlur(emailid)" required>
     <br>
     <br>
-    <input type="email" name="" placeholder="Re-enter email*" id="confirm" onkeyup="checkEmail()" required>
+    <input type="email" name="email" placeholder="Re-enter email*" id="confirm" onkeyup="checkEmail()" onfocus="handleFocus(confirm)"
+      onblur="handleBlur(confirm)" required>
     <span id="emailMessage"></span>
     <br>
     <br>
     <br>
-    <input type="text" rows='2' name="" placeholder="Address*" pattern="[a-zåäö0-9,.-]\s?{2,}" required>
+    <input type="text" id="address" rows='2' name="address" placeholder="Address*" pattern="[a-zåäö0-9,.-]\s?{2,}" onfocus="handleFocus(address)"
+      onblur="handleBlur(address)" required>
     <br>
     <br>
     <hr class="greyHr">
     <br>
-    <input type="text" name="" placeholder="City*" pattern="[A-ZÅ][a-zåäö]{1,}" class='location' required>
-    <input type="text" name="" placeholder="State" pattern="" class='location'>
-    <input type="text" name="" placeholder="Country/Region*" pattern="([A-ZÅÄÖ][a-zåäö]{1,}\s?){1,}" class='location' required>
-    <input type="text" name="" placeholder="Zip/Postal code" pattern="[0-9]{5}" class='locationend'>
+    <input type="text" id="city" name="city" placeholder="City*" pattern="([A-ZÅÄÖa-zåäö]{1,}\s?){1,}" class='location' onfocus="handleFocus(city)"
+      onblur="handleBlur(city)" required>
+    <input type="text" id="state" name="state" placeholder="State" pattern="([A-ZÅÄÖa-zåäö]{1,}\s?){1,}" onfocus="handleFocus(state)"
+      onblur="handleBlur(state)" class='location'>
+    <input type="text" id="country" name="country" placeholder="Country/Region*" pattern="([A-ZÅÄÖa-zåäö]{1,}\s?){1,}" class='location'
+      onfocus="handleFocus(country)" onblur="handleBlur(country)" required>
+    <input type="text" id="zip" name="zip" placeholder="Zip/Postal code" pattern="[0-9]{5}" class='locationend' onfocus="handleFocus(zip)"
+      onblur="handleBlur(zip)">
     <br>
     <br>
     <br>
-    <input type="text" name="" pattern="" placeholder="How did you hear about us">
+    <input type="text" id="how" name="how" pattern="([A-Za-zÅÄÖåäö]\s?){3,}" placeholder="How did you hear about us" onfocus="handleFocus(how)"
+      onblur="handleBlur(how)">
 
     <h4>2. Skills and location</h4>
     <hr>
@@ -199,7 +208,8 @@
     <br>
     <br>
 
-    <input type="url" name="" pattern="https?://.+[.].+" title="Please include a valid url starting with https://" placeholder="Portfolio link*">
+    <input type="url" name="" pattern="https?://.+[.].+" title="Please include a valid url starting with https://" placeholder="Portfolio link*"
+      id="portfolio" onfocus="handleFocus(portfolio)" onblur="handleBlur(portfolio)" required>
     <br>
     <br>
     <textarea name="" rows="5" placeholder="Anything else (another link, availability, etc.)?"></textarea>

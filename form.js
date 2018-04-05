@@ -64,3 +64,11 @@ function addExperience() {
   tRow.appendChild(newLabel);
   document.getElementById("addValue").value = "";
 }
+
+function handleFocus(inputId) {
+  inputId.classList.remove("touched");
+}
+
+function handleBlur(inputId) {
+  inputId.classList.add("touched");
+}
