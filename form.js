@@ -12,7 +12,7 @@ function deleteOption(containerId) {
 }
 
 function checkEmail() {
-  var email = document.getElementById("email").value;
+  var email = document.getElementById("emailid").value;
   var confirm = document.getElementById("confirm").value;
   if (email === confirm) {
     emailMessage.style.color = "LightGreen";
@@ -67,8 +67,69 @@ function addExperience() {
 
 function handleFocus(inputId) {
   inputId.classList.remove("touched");
+  document.getElementById("errorText").innerHTML = "";
 }
 
 function handleBlur(inputId) {
   inputId.classList.add("touched");
+
+  var id = inputId.id;
+  var error = document.getElementById("errorText");
+  console.log(id);
+  console.log(inputId.value);
+
+  if (
+    id === "fullname" &&
+    !inputId.value.match(/^([A-ZÄÖÅ][a-zåäö'?.?]{1,}\s?){2,}/)
+  ) {
+    error.innerHTML = "Valid FullName is required!";
+  } else if (
+    id === "tel" &&
+    !inputId.value.match(/([+]358[0-9]{9})|(0[0-9]{9})/)
+  ) {
+    error.innerHTML = "Valid Phone Number is required!";
+  } else if (
+    id === "emailid" &&
+    !inputId.value.match(/^[a-zöåä0-9.-_%+]+@[a-z0-9.-]+\.[a-z]{2,4}$/)
+  ) {
+    error.innerHTML = "Valid Email Address is required!";
+  } else if (
+    id === "confirm" &&
+    !inputId.value.match(/^[a-zöåä0-9.-_%+]+@[a-z0-9.-]+\.[a-z]{2,4}$/)
+  ) {
+    error.innerHTML = "Re-entered Email Address is invalid!";
+  } else if (
+    id === "address" &&
+    !inputId.value.match(/([a-zåäö0-9,.-]\s?){2,}/)
+  ) {
+    error.innerHTML = "Valid Address is required!";
+  } else if (
+    id === "city" &&
+    !inputId.value.match(/([A-ZÅÄÖa-zåäö]{1,}\s?){1,}/)
+  ) {
+    error.innerHTML = "Valid City is required";
+  } else if (
+    id === "country" &&
+    !inputId.value.match(/([A-ZÅÄÖa-zåäö]{1,}\s?){1,}/)
+  ) {
+    error.innerHTML = "Valid Country is required";
+  } else if (
+    id === "state" &&
+    inputId.value !== "" &&
+    !inputId.value.match(/([A-ZÅÄÖa-zåäö]{1,}\s?){1,}/)
+  ) {
+    error.innerHTML = "Please Enter a Valid State or Leave it Blank!";
+  } else if (
+    id === "zip" &&
+    inputId.value !== "" &&
+    !inputId.value.match(/[0-9]{5}/)
+  ) {
+    error.innerHTML = "Please Enter a Valid Zip/Postal Code or Leave it Blank!";
+  } else if (
+    id === "how" &&
+    inputId.value !== "" &&
+    !inputId.value.match(/([A-Za-zÅÄÖåäö]\s?){3,}/)
+  ) {
+    error.innerHTML = "Please Enter Valid Data or Leave it Blank!";
+  }
 }
