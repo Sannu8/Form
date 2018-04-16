@@ -23,6 +23,32 @@ function checkEmail() {
   }
 }
 
+function handleCheck() {
+  var input = document.getElementsByClassName("check");
+
+  var oneChecked = false;
+  console.log("checked false");
+
+  for (i = 0; i < input.length; i++) {
+    if (input[i].checked === true) {
+      oneChecked = true;
+      console.log("checked true");
+    }
+  }
+
+  if (oneChecked === true) {
+    for (i = 0; i < input.length; i++) {
+      input[i].required = false;
+      console.log("checked false");
+    }
+  } else {
+    for (i = 0; i < input.length; i++) {
+      input[i].required = true;
+      console.log("checked true");
+    }
+  }
+}
+
 function addExperience() {
   /// For Label element
   var inputValue = document.getElementById("addValue").value;
