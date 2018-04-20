@@ -23,34 +23,29 @@ function checkEmail() {
   }
 }
 
-function handleCheck() {
-  var input = document.getElementsByClassName("check");
-
+function handleCheck(check) {
+  var input = document.getElementsByClassName(check);
   var oneChecked = false;
-  console.log("checked false");
-
   for (i = 0; i < input.length; i++) {
     if (input[i].checked === true) {
       oneChecked = true;
-      console.log("checked true");
     }
   }
 
   if (oneChecked === true) {
     for (i = 0; i < input.length; i++) {
       input[i].required = false;
-      console.log("checked false");
     }
   } else {
     for (i = 0; i < input.length; i++) {
       input[i].required = true;
-      console.log("checked true");
     }
   }
 }
 
 function addExperience() {
   /// For Label element
+
   var inputValue = document.getElementById("addValue").value;
   var newLabel = document.createElement("label");
   newLabel.setAttribute("id", inputValue);
@@ -87,13 +82,22 @@ function addExperience() {
 
   var tRow = document.getElementById("ExperienceTd");
 
-  tRow.appendChild(newLabel);
+  if (inputValue !== "") {
+    tRow.appendChild(newLabel);
+  }
+
   document.getElementById("addValue").value = "";
 }
 
 function handleFocus(inputId) {
   inputId.classList.remove("touched");
-  document.getElementById("errorText").innerHTML = "";
+  console.log(inputId.id);
+
+  if (inputId.id === "portfolio") {
+    document.getElementById("portfolioError").innerHTML = "";
+  } else {
+    document.getElementById("errorText").innerHTML = "";
+  }
 }
 
 function handleBlur(inputId) {
@@ -101,8 +105,7 @@ function handleBlur(inputId) {
 
   var id = inputId.id;
   var error = document.getElementById("errorText");
-  console.log(id);
-  console.log(inputId.value);
+  var portfolioError = document.getElementById("portfolioError");
 
   if (
     id === "fullname" &&
@@ -126,7 +129,7 @@ function handleBlur(inputId) {
     error.innerHTML = "Re-entered Email Address is invalid!";
   } else if (
     id === "address" &&
-    !inputId.value.match(/([a-zåäö0-9,.-]\s?){2,}/)
+    !inputId.value.match(/^([A-ZÅÖÄa-zåäö0-9,?.?-?]{1,}\s?){2,}/)
   ) {
     error.innerHTML = "Valid Address is required!";
   } else if (
@@ -157,5 +160,7 @@ function handleBlur(inputId) {
     !inputId.value.match(/([A-Za-zÅÄÖåäö]\s?){3,}/)
   ) {
     error.innerHTML = "Please Enter Valid Data or Leave it Blank!";
+  } else if (id === "portfolio" && !inputId.value.match(/[https?://.+[.].+]/)) {
+    portfolioError.innerHTML = "Please Enter Valid Portfolio Link!";
   }
 }

@@ -265,6 +265,7 @@ hr.greyHr {
   transform: rotate(45deg);
 }
 
-#errorText {
+#errorText,
+#experienceError {
   color: red;
 }

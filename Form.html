@@ -37,8 +37,8 @@
     <br>
     <br>
     <br>
-    <input type="text" id="address" rows='2' name="address" placeholder="Address*" pattern="[a-zåäö0-9,.-]\s?{2,}" onfocus="handleFocus(address)"
-      onblur="handleBlur(address)" required>
+    <input type="text" id="address" rows='2' name="address" placeholder="Address*" pattern="^([A-ZÅÖÄa-zåäö0-9,?.?-?]{1,}\s?){2,}"
+      onfocus="handleFocus(address)" onblur="handleBlur(address)" required>
     <br>
     <br>
     <hr class="greyHr">
@@ -144,7 +144,7 @@
           <br>
 
           <label id="Austin" class="container" onmouseover="displayCross(crossAustin)" onmouseout="removeCross(crossAustin)">Austin, Texas
-            <input type="checkbox" name="check" label="Austin, Texas" onclick="handleCheck('check')" required>
+            <input type="checkbox" name="check" class="check" label="Austin, Texas" onclick="handleCheck('check')" required>
             <span class="checkmark"></span>
             <span id="crossAustin" onclick="deleteOption(Austin)"></span>
           </label>
@@ -191,10 +191,10 @@
 
       <tr id="Add">
         <td>
-          <input type="text" name="" id="addValue">
+          <input type="text" name="" id="addValue" pattern="" title="Please add the Add Experience button or leave the field blank.">
         </td>
         <td>
-          <input type="button" name="" value="Add Experience" onclick="addExperience()">
+          <input type="button" name="" value="Add Experience" id="add" onclick="addExperience()">
         </td>
 
         <td colspand="2"></td>
@@ -212,6 +212,7 @@
     <input type="url" name="" pattern="https?://.+[.].+" title="Please include a valid url starting with https://" placeholder="Portfolio link*"
       id="portfolio" onfocus="handleFocus(portfolio)" onblur="handleBlur(portfolio)" required>
     <br>
+    <span id="portfolioError" />
     <br>
     <textarea name="" rows="5" placeholder="Anything else (another link, availability, etc.)?"></textarea>
 
