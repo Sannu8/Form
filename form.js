@@ -91,21 +91,14 @@ function addExperience() {
 
 function handleFocus(inputId) {
   inputId.classList.remove("touched");
-  console.log(inputId.id);
 
-  if (inputId.id === "portfolio") {
-    document.getElementById("portfolioError").innerHTML = "";
-  } else {
-    document.getElementById("errorText").innerHTML = "";
-  }
+  document.getElementById("errorText").innerHTML = "";
 }
 
 function handleBlur(inputId) {
   inputId.classList.add("touched");
-
   var id = inputId.id;
   var error = document.getElementById("errorText");
-  var portfolioError = document.getElementById("portfolioError");
 
   if (
     id === "fullname" &&
@@ -161,6 +154,6 @@ function handleBlur(inputId) {
   ) {
     error.innerHTML = "Please Enter Valid Data or Leave it Blank!";
   } else if (id === "portfolio" && !inputId.value.match(/[https?://.+[.].+]/)) {
-    portfolioError.innerHTML = "Please Enter Valid Portfolio Link!";
+    error.innerHTML = "Please Enter Valid Portfolio Link!";
   }
 }
