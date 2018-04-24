@@ -107,7 +107,7 @@ function handleBlur(inputId) {
     error.innerHTML = "Valid FullName is required!";
   } else if (
     id === "tel" &&
-    !inputId.value.match(/([+]358[0-9]{9})|(0[0-9]{9})/)
+    !inputId.value.match(/(^[+]358[0-9]{9}$)|(^0[0-9]{9}$)/)
   ) {
     error.innerHTML = "Valid Phone Number is required!";
   } else if (
