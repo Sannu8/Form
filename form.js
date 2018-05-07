@@ -144,7 +144,7 @@ function handleBlur(inputId) {
   } else if (
     id === "zip" &&
     inputId.value !== "" &&
-    !inputId.value.match(/[0-9]{5}/)
+    !inputId.value.match(/^[0-9]{5}$/)
   ) {
     error.innerHTML = "Please Enter a Valid Zip/Postal Code or Leave it Blank!";
   } else if (

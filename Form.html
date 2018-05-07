@@ -50,7 +50,7 @@
       onblur="handleBlur(state)" class='location'>
     <input type="text" id="country" name="country" placeholder="Country/Region*" pattern="([A-ZÅÄÖa-zåäö]{1,}\s?){1,}" class='location'
       onfocus="handleFocus(country)" onblur="handleBlur(country)" required>
-    <input type="text" id="zip" name="zip" placeholder="Zip/Postal code" pattern="[0-9]{5}" class='locationend' onfocus="handleFocus(zip)"
+    <input type="text" id="zip" name="zip" placeholder="Zip/Postal code" pattern="^[0-9]{5}$" class='locationend' onfocus="handleFocus(zip)"
       onblur="handleBlur(zip)">
     <br>
     <br>
