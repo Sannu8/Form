@@ -27,12 +27,13 @@
       class="floatRight" id="tel" onfocus="handleFocus(tel)" onblur="handleBlur(tel)" required>
     <br>
     <br>
-    <input type="email" name="email" placeholder="Email*" id="emailid" title="Format allowed: sandhyamahat8@yahoo.com" onfocus="handleFocus(emailid)"
-      onblur="handleBlur(emailid)" required>
+    <input type="text" name="email" class="email" pattern="^[a-zöåä0-9.-_%+]+@[a-z0-9.-]+\.[a-z]{2,4}$" placeholder="Email*"
+      id="emailid" title="Format allowed: sandhyamahat8@yahoo.com" onfocus="handleFocus(emailid)" onblur="handleBlur(emailid)"
+      required>
     <br>
     <br>
-    <input type="email" name="email" placeholder="Re-enter email*" id="confirm" onkeyup="checkEmail()" onfocus="handleFocus(confirm)"
-      onblur="handleBlur(confirm)" required>
+    <input type="text" name="email" class="email" pattern="^[a-zöåä0-9.-_%+]+@[a-z0-9.-]+\.[a-z]{2,4}$" placeholder="Re-enter email*"
+      id="confirm" onkeyup="checkEmail()" onfocus="handleFocus(confirm)" onblur="handleBlur(confirm)" required>
     <span id="emailMessage"></span>
     <br>
     <br>
