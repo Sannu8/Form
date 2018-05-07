@@ -192,7 +192,7 @@
 
       <tr id="Add">
         <td>
-          <input type="text" name="" id="addValue" pattern="" title="Please click the 'Add Experience' button or leave the field blank.">
+          <input type="text" name="" id="addValue" pattern="" onblur="handleBlur(addValue)" onfocus="handleFocus(addValue)" title="Please click the 'Add Experience' button or leave the field blank.">
         </td>
         <td>
           <input type="button" name="" value="Add Experience" id="add" onclick="addExperience()">

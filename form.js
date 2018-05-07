@@ -45,7 +45,7 @@ function handleCheck(check) {
 
 function addExperience() {
   /// For Label element
-
+  document.getElementById("errorText").innerHTML = "";
   var inputValue = document.getElementById("addValue").value;
   var newLabel = document.createElement("label");
   newLabel.setAttribute("id", inputValue);
@@ -91,7 +91,6 @@ function addExperience() {
 
 function handleFocus(inputId) {
   inputId.classList.remove("touched");
-
   document.getElementById("errorText").innerHTML = "";
 }
 
@@ -99,6 +98,10 @@ function handleBlur(inputId) {
   inputId.classList.add("touched");
   var id = inputId.id;
   var error = document.getElementById("errorText");
+  var addButton = document.getElementById("add");
+  if (addButton.clicked === true) {
+    console.log("true");
+  }
 
   if (
     id === "fullname" &&
@@ -127,18 +130,18 @@ function handleBlur(inputId) {
     error.innerHTML = "Valid Address is required!";
   } else if (
     id === "city" &&
-    !inputId.value.match(/([A-ZÅÄÖa-zåäö]{1,}\s?){1,}/)
+    !inputId.value.match(/^([A-ZÅÄÖa-zåäö]{1,}\s?){1,}$/)
   ) {
     error.innerHTML = "Valid City is required";
   } else if (
     id === "country" &&
-    !inputId.value.match(/([A-ZÅÄÖa-zåäö]{1,}\s?){1,}/)
+    !inputId.value.match(/^([A-ZÅÄÖa-zåäö]{1,}\s?){1,}$/)
   ) {
     error.innerHTML = "Valid Country is required";
   } else if (
     id === "state" &&
     inputId.value !== "" &&
-    !inputId.value.match(/([A-ZÅÄÖa-zåäö]{1,}\s?){1,}/)
+    !inputId.value.match(/^([A-ZÅÄÖa-zåäö]{1,}\s?){1,}$/)
   ) {
     error.innerHTML = "Please Enter a Valid State or Leave it Blank!";
   } else if (
@@ -150,10 +153,16 @@ function handleBlur(inputId) {
   } else if (
     id === "how" &&
     inputId.value !== "" &&
-    !inputId.value.match(/([A-Za-zÅÄÖåäö]\s?){3,}/)
+    !inputId.value.match(/^([A-Za-zÅÄÖåäö]\s?){3,}$/)
   ) {
     error.innerHTML = "Please Enter Valid Data or Leave it Blank!";
-  } else if (id === "portfolio" && !inputId.value.match(/[https?://.+[.].+]/)) {
+  } else if (id === "addValue" && inputId.value !== "") {
+    error.innerHTML =
+      "Please click the 'Add Experience' button or leave the field blank.";
+  } else if (
+    id === "portfolio" &&
+    !inputId.value.match(/^[https?://.+[.].+]$/)
+  ) {
     error.innerHTML = "Please Enter Valid Portfolio Link!";
   }
 }
