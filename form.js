@@ -163,6 +163,7 @@ function handleBlur(inputId) {
     id === "portfolio" &&
     !inputId.value.match(/^[https?://.+[.].+]$/)
   ) {
-    error.innerHTML = "Please Enter Valid Portfolio Link!";
+    error.innerHTML =
+      "Please Enter Valid Portfolio Link. For eg: http://gmail.com!";
   }
 }
